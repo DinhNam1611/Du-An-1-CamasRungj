@@ -49,10 +49,10 @@
                   foreach ($listQuanTri as $key => $quantri): ?>
                     <tr>
                       <td><?= $key + 1 ?></td>
-                      <td><?= $quantri['ho_ten'] ?></td>
+                      <td><?= $quantri['username'] ?></td>
                       <td><?= $quantri['email'] ?></td>
-                      <td><?= $quantri['so_dien_thoai'] ?></td>
-                      <td><?= $quantri['ten_trang_thai'] ?></td>
+                      <td><?= $quantri['phone'] ?></td>
+                      <td><?= $quantri['role_name'] ?></td>
                       <td>
                         <a href="<?= BASE_URL_ADMIN . "?act=form-sua-quan-tri&id_quan_tri=" . $quantri['id']; ?>">
                           <button class="btn btn-warning">Sửa</button>

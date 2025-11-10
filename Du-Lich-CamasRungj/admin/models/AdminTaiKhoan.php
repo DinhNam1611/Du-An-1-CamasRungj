@@ -9,16 +9,16 @@ class AdminTaiKhoan
     }
 
     //Lấy Tất cả trong bảng sản phẩm
-    public function getAllTaiKhoan($chuc_vu_id)
+    public function getAllTaiKhoan($role)
     {
         try {
-            $sql = 'SELECT tai_khoans.* , trang_thai_tai_khoans.ten_trang_thai
-             FROM tai_khoans
-             INNER JOIN trang_thai_tai_khoans ON tai_khoans.trang_thai = trang_thai_tai_khoans.id
-            WHERE tai_khoans.chuc_vu_id = :chuc_vu_id';
+            $sql = 'SELECT users.* , role_id.role_name
+             FROM roles
+             INNER JOIN roles ON users.role_id = roles.role_id
+            WHERE user.role = :role';
             $stmt = $this->conn->prepare($sql);
             $stmt->execute([
-                ":chuc_vu_id" => $chuc_vu_id,
+                ":role" => $role,
             ]);
             return $stmt->fetchAll();
         } catch (Exception $e) {
@@ -178,7 +178,7 @@ class AdminTaiKhoan
         }
     }
 
-    public function checkLogin($email, $mat_khau)
+    public function checkLogin($email, $password)
     {
         $result = [
             'status' => false, // Mặc định là thất bại
@@ -189,13 +189,10 @@ class AdminTaiKhoan
 
         try {
             // 1. Tìm user theo email
-            $sql = "SELECT * FROM tai_khoans WHERE email = :email";
+            $sql = "SELECT * FROM users WHERE email = :email";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute([':email' => $email]);
             $user = $stmt->fetch();
-
-
-
 
             // Nếu email không tồn tại
             if (!$user) {
@@ -204,33 +201,22 @@ class AdminTaiKhoan
             }
 
             // Nếu mật khẩu sai
-            if (!password_verify($mat_khau, $user['mat_khau'])) {
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+            if (!password_verify($hashedPassword, $user['password'])) {
                 $result['message'] = 'Mật khẩu không chính xác';
                 return $result;
             }
 
             // Nếu không phải admin
-            if ($user['chuc_vu_id'] != 1) {
+            if ($user['role_id'] != 1) {
                 $result['message'] = 'Tài khoản không có quyền truy cập';
                 return $result;
             }
 
             // Nếu tài khoản bị khóa
-            if ($user['trang_thai'] != 1) {
-                if ($user['trang_thai'] == 2) {
-                    $result['message'] = 'Tài khoản chưa được kích hoạt';
-                    return $result;
-                }
-                if ($user['trang_thai'] == 3) {
-                    $result['message'] = 'Tài khoản bị khóa tạm thời';
-                    return $result;
-                }
-                if ($user['trang_thai'] == 4) {
-                    $result['message'] = 'Tài khoản bị vô hiệu hóa';
-                    return $result;
-                }
-                if ($user['trang_thai'] == 5) {
-                    $result['message'] = 'Tài khoản đang chờ duyệt';
+            if ($user['role_id'] != 1) {
+                if ($user['trang_thai'] == 0) {
+                    $result['message'] = 'Tài khoản đã bị cấm';
                     return $result;
                 }
             }

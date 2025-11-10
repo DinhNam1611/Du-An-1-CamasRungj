@@ -8,10 +8,10 @@ class AdminDonHangController
     }
 
     // Lấy ra đơn hàng
-    public function danhSachDonHang()
+    public function danhSachBooking()
     {
-        $listDonHang = $this->modelDonHang->getAllDonHang();
-        require_once './views/DonHang/listDonHang.php';
+        $listBooking = $this->modelDonHang->getAllBooking();
+        require_once './views/Booking/listBooking.php';
     }
 
     // Chuyển đến form edit đơn hàng

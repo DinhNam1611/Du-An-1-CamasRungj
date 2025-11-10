@@ -13,7 +13,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1> Quản lý Danh Sách Đơn Hàng</h1>
+          <h1> Quản lý Danh Sách Booking</h1>
         </div>
       </div>
     </div><!-- /.container-fluid -->
@@ -25,16 +25,20 @@
       <div class="row">
         <div class="col-12">
           <div class="card">
-            <!-- /.card-header -->
+            <div class="card-header">
+              <a href="<?= BASE_URL_ADMIN . "?act=form-them-booking" ?>">
+                <button class="btn btn-success">Thêm Booking</button>
+              </a>
+            </div>
             <div class="card-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                   <tr>
                     <th>STT</th>
-                    <th>Mã Đơn Hàng</th>
-                    <th>Tên Người Nhận</th>
-                    <th>Số Điện Thoại </th>
+                    <th>Mã Booking</th>
+                    <th>Tên Người Đặt</th>
                     <th>Ngày Đặt</th>
+                    <th>Số Người</th>
                     <th>Tổng Tiền</th>
                     <th>Trạng Thái</th>
                     <th>Thao Tác</th>
@@ -42,21 +46,21 @@
                 </thead>
                 <tbody>
                   <?php
-                  foreach ($listDonHang as $key => $donhang): ?>
+                  foreach ($listBooking as $key => $booking): ?>
                     <tr>
                       <td class="text-center"><?= $key + 1 ?></td>
-                      <td><?= $donhang['ma_don_hang'] ?></td>
-                      <td><?= $donhang['ten_nguoi_nhan'] ?></td>
-                      <td><?= $donhang['sdt_nguoi_nhan'] ?></td>
-                      <td><?= formatDate($donhang['ngay_dat']) ?></td>
-                      <td><?= number_format($donhang['tong_tien'], 0, '.', ',') . ' vnđ' ?></td>
-                      <td><?= $donhang['ten_trang_thai'] ?></td>
+                      <td><?= $booking['booking_id '] ?></td>
+                      <td><?= $booking['user_name'] ?></td>
+                      <td><?= formatDate($booking['booking_date']) ?></td>
+                      <td><?= $booking['total_guests'] ?></td>
+                      <td><?= number_format($booking['total_price'], 0, '.', ',') . ' vnđ' ?></td>
+                      <td><?= $booking['status'] ?></td>
                       <td class="text-center">
                         <div class="btn-group">
-                          <a href="<?= BASE_URL_ADMIN . "?act=chi-tiet-don-hang&id=" . $donhang['id']; ?>">
+                          <a href="<?= BASE_URL_ADMIN . "?act=chi-tiet-booking&id=" . $booking['booking_id']; ?>">
                             <button class="btn btn-primary"><i class="far fa-eye"></i></button>
                           </a>
-                          <a href="<?= BASE_URL_ADMIN . "?act=form-sua-don-hang&id=" . $donhang['id']; ?>">
+                          <a href="<?= BASE_URL_ADMIN . "?act=form-sua-booking&id=" . $booking['booking_id']; ?>">
                             <button class="btn btn-warning"><i class="fas fa-cogs"></i></button>
                           </a>
                         </div>
@@ -67,10 +71,10 @@
                 <tfoot>
                   <tr>
                     <th>STT</th>
-                    <th>Mã Đơn Hàng</th>
-                    <th>Tên Người Nhận</th>
-                    <th>Số Điện Thoại </th>
+                    <th>Mã Booking</th>
+                    <th>Tên Người Đặt</th>
                     <th>Ngày Đặt</th>
+                    <th>Số Người</th>
                     <th>Tổng Tiền</th>
                     <th>Trạng Thái</th>
                     <th>Thao Tác</th>

@@ -2,13 +2,9 @@
 class AdminTaiKhoanController
 {
     public $modelTaiKhoan;
-    public $modelDonHang;
-    public $modelSanPham;
     public function __construct()
     {
         $this->modelTaiKhoan = new AdminTaiKhoan();
-        $this->modelDonHang = new AdminDonHang();
-        $this->modelSanPham = new AdminSanPham();
     }
 
 
@@ -192,7 +188,6 @@ class AdminTaiKhoanController
     public function formLogin()
     {
         require_once './views/auth/formLogin.php';
-
         deleteSessionError();
     }
 
@@ -208,17 +203,16 @@ class AdminTaiKhoanController
 
             $email = $_POST['email'] ?? '';
             $password = $_POST['password'] ?? '';
-            // var_dump($_SESSION['user_admin']['anh_dai_dien']);
-            // die;
 
             $user = $this->modelTaiKhoan->checkLogin($email, $password);
+
             if ($user['status'] === true) {
                 $_SESSION['user_admin'] = $user['user'];
                 $_SESSION['user_admin_infor'] = [
-                    'id' => $user['user']['id'],
-                    'ho_ten' => $user['user']['ho_ten'],
+                    'id' => $user['user']['user_id '],
+                    'ho_ten' => $user['user']['username'],
                     'email' => $user['user']['email'],
-                    'anh_dai_dien' => $user['user']['anh_dai_dien'] ?? 'https://www.transparentpng.com/thumb/user/gray-user-profile-icon-png-fP8Q1P.png',
+                    'anh_dai_dien' => 'https://www.transparentpng.com/thumb/user/gray-user-profile-icon-png-fP8Q1P.png',
                 ];
                 header('Location: ' . BASE_URL_ADMIN);
                 exit();

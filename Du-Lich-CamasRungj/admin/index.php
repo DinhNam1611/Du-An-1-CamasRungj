@@ -22,9 +22,9 @@ $act = $_GET['act'] ?? '/';
 
 $publicRoutes = ['login-admin', 'check-login-admin', 'logout-admin'];
 
-if (!in_array($act, $publicRoutes)) {
-    checkAdmin();
-}
+// if (!in_array($act, $publicRoutes)) {
+//     checkAdmin();
+// }
 
 match ($act) {
     // router Admin Home
@@ -53,7 +53,7 @@ match ($act) {
     'update-trang-thai-binh-luan' => (new AdminSanPhamController())->updateTrangThaiBinhLuan(),
 
     // router quản lý đơn hàngg
-    'don-hang' => (new AdminDonHangController())->danhSachDonHang(),
+    'booking' => (new AdminDonHangController())->danhSachBooking(),
     'form-sua-don-hang' => (new AdminDonHangController())->formEditDonHang(),
     'sua-don-hang' => (new AdminDonHangController())->postEditDonHang(),
     'chi-tiet-don-hang' => (new AdminDonHangController())->detailDonHang(),
@@ -80,7 +80,7 @@ match ($act) {
 
     'sua-mat-khau-ca-nhan-quan-tri' => (new AdminTaiKhoanController())->postEditMatKhauCaNhanQuanTri(),
 
-    //router auth'
+    // router auth'
     'login-admin' => (new AdminTaiKhoanController())->formLogin(),
     'logout-admin' => (new AdminTaiKhoanController())->logout(),
     'check-login-admin' => (new AdminTaiKhoanController())->login(),
