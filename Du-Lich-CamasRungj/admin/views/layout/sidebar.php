@@ -40,7 +40,7 @@
 
           </li>
           <li class="nav-item">
-            <a href="<?= BASE_URL_ADMIN . "?act=san-pham" ?>" class="nav-link">
+            <a href="<?= BASE_URL_ADMIN . "?act=tour" ?>" class="nav-link">
               <i class="nav-icon fas fa-plane"></i>
               <p>
                 Quản lý tour

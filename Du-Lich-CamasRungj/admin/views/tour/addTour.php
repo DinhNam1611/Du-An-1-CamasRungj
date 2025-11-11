@@ -13,7 +13,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1> Quản lý Sản Phẩm</h1>
+          <h1> Quản lý Tour</h1>
         </div>
       </div>
     </div><!-- /.container-fluid -->
@@ -26,17 +26,17 @@
         <div class="col-12">
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Thêm Sản Phẩm</h3>
+              <h3 class="card-title">Thêm Tour</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="<?= BASE_URL_ADMIN . "?act=them-san-pham" ?>" method="POST" enctype="multipart/form-data">
+            <form action="<?= BASE_URL_ADMIN . "?act=them-tour" ?>" method="POST" enctype="multipart/form-data">
               <div class="card-body row">
 
-                <!-- Tên Sản Phẩm -->
+                <!-- Tên Tour -->
                 <div class="form-group col-6">
-                  <label>Tên Sản Phẩm</label>
-                  <input type="text" class="form-control" name="ten_san_pham" value="<?= isset($_POST['ten_san_pham']) ? $_POST['ten_san_pham'] : '' ?>" placeholder="Nhập Tên Sản Phẩm">
+                  <label>Tên Tour</label>
+                  <input type="text" class="form-control" name="ten_san_pham" value="<?= isset($_POST['ten_san_pham']) ? $_POST['ten_san_pham'] : '' ?>" placeholder="Nhập Tên Tour">
                   <?php
                   if (isset($_SESSION['error']['ten_san_pham'])) { ?>
                     <p class="text-danger"><?= $_SESSION['error']['ten_san_pham'] ?></p>
@@ -46,7 +46,7 @@
                 <!-- Giá Tiền -->
                 <div class="form-group col-6">
                   <label>Giá Tiền</label>
-                  <input type="number" class="form-control" name="gia_san_pham" min="0" placeholder="Nhập Giá Sản Phẩm">
+                  <input type="number" class="form-control" name="gia_san_pham" min="0" placeholder="Nhập Giá Tour">
                   <?php
                   if (isset($_SESSION['error']['gia_san_pham'])) { ?>
                     <p class="text-danger"><?= $_SESSION['error']['gia_san_pham'] ?></p>
@@ -62,16 +62,16 @@
                 <!-- Số Lượng -->
                 <div class="form-group col-6">
                   <label>Số Lượng</label>
-                  <input type="number" class="form-control" name="so_luong" placeholder="Nhập Số Lượng Sản Phẩm">
+                  <input type="number" class="form-control" name="so_luong" placeholder="Nhập Số Lượng Tour">
                   <?php
                   if (isset($_SESSION['error']['so_luong'])) { ?>
                     <p class="text-danger"><?= $_SESSION['error']['so_luong'] ?></p>
                   <?php } ?>
                 </div>
 
-                <!-- Ảnh Sản Phẩm -->
+                <!-- Ảnh Tour -->
                 <div class="form-group col-6">
-                  <label>Ảnh Sản Phẩm</label>
+                  <label>Ảnh Tour</label>
                   <input type="file" class="form-control" name="hinh_anh">
                   <?php
                   if (isset($_SESSION['error']['hinh_anh'])) { ?>
@@ -79,16 +79,16 @@
                   <?php } ?>
                 </div>
 
-                <!-- Album Ảnh Sản Phẩm -->
+                <!-- Album Ảnh Tour -->
                 <div class="form-group col-6">
-                  <label>Album Ảnh Sản Phẩm</label>
+                  <label>Album Ảnh Tour</label>
                   <input type="file" class="form-control" name="img_array[]" multiple>
                 </div>
 
                 <!-- Lượt Xem -->
                 <div class="form-group col-6">
                   <label>Lượt Xem</label>
-                  <input type="number" class="form-control" name="luot_xem" placeholder="Nhập Lượt Xem Sản Phẩm">
+                  <input type="number" class="form-control" name="luot_xem" placeholder="Nhập Lượt Xem Tour">
                   <?php
                   if (isset($_SESSION['error']['luot_xem'])) { ?>
                     <p class="text-danger"><?= $_SESSION['error']['luot_xem'] ?></p>
@@ -98,7 +98,7 @@
                 <!-- Ngày Nhập -->
                 <div class="form-group col-6">
                   <label>Ngay Nhập</label>
-                  <input type="date" class="form-control" name="ngay_nhap" placeholder="Nhập Ngày Nhập Sản Phẩm">
+                  <input type="date" class="form-control" name="ngay_nhap" placeholder="Nhập Ngày Nhập Tour">
                   <?php
                   if (isset($_SESSION['error']['ngay_nhap'])) { ?>
                     <p class="text-danger"><?= $_SESSION['error']['ngay_nhap'] ?></p>
@@ -141,7 +141,7 @@
                 <!-- Mô Tả -->
                 <div class="form-group col-12">
                   <label>Mô Tả</label>
-                  <textarea name="mo_ta" class="form-control" id="" placeholder="Nhập Mô Tả Sản Phẩm"></textarea>
+                  <textarea name="mo_ta" class="form-control" id="" placeholder="Nhập Mô Tả Tour"></textarea>
                 </div>
 
               </div>

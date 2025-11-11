@@ -13,7 +13,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1> Quản lý Sản Phẩm</h1>
+          <h1> Quản lý Tour</h1>
         </div>
       </div>
     </div><!-- /.container-fluid -->
@@ -27,7 +27,7 @@
           <div class="card">
             <div class="card-header">
               <a href="<?= BASE_URL_ADMIN . "?act=form-them-san-pham" ?>">
-                <button class="btn btn-success">Thêm Sản Phẩm</button>
+                <button class="btn btn-success">Thêm Tour</button>
               </a>
             </div>
             <!-- /.card-header -->
@@ -36,8 +36,8 @@
                 <thead>
                   <tr>
                     <th>STT</th>
-                    <th>Tên Sản Phẩm</th>
-                    <th>Ảnh Sản Phẩm</th>
+                    <th>Tên Tour</th>
+                    <th>Ảnh Tour</th>
                     <th>Giá Tiền</th>
                     <th>Số Lượng</th>
                     <th>Danh Mục </th>
@@ -47,7 +47,7 @@
                 </thead>
                 <tbody>
                   <?php
-                  foreach ($listSanPham as $key => $sanpham): ?>
+                  foreach ($listTour as $key => $sanpham): ?>
                     <tr>
                       <td class="text-center"><?= $key + 1 ?></td>
                       <td><?= $sanpham['ten_san_pham'] ?></td>
@@ -78,8 +78,8 @@
                 <tfoot>
                   <tr>
                     <th>STT</th>
-                    <th>Tên Sản Phẩm</th>
-                    <th>Ảnh Sản Phẩm</th>
+                    <th>Tên Tour</th>
+                    <th>Ảnh Tour</th>
                     <th>Giá Tiền</th>
                     <th>Số Lượng</th>
                     <th>Danh Mục </th>
