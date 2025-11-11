@@ -31,7 +31,7 @@ match ($act) {
     '/' => (new AdminBaoCaoThongKeController())->home(),
 
     // router danh mục
-    'danh-muc' => (new AdminDanhMucController())->danhSachDanhMuc(),
+    'danh-muc-tour' => (new AdminDanhMucController())->danhSachDanhMuc(),
     'form-them-danh-muc' => (new AdminDanhMucController())->formAddDanhMuc(),
     'them-danh-muc' => (new AdminDanhMucController())->postAddDanhMuc(),
     'form-sua-danh-muc' => (new AdminDanhMucController())->formEditDanhMuc(),
