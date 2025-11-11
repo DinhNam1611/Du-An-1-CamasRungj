@@ -13,7 +13,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-10">
-          <h1> Quản lý Danh Sách Đơn Hàng - Đơn Hàng: <?= $DonHang['ma_don_hang'] ?></h1>
+          <h1> Quản lý Danh Sách Booking - Booking: <?= $DonHang['ma_don_hang'] ?></h1>
         </div>
         <div class="col-sm-2">
           <form action="" method="post">
@@ -50,7 +50,7 @@
           }
           ?>
           <div class="alert alert-<?= $colorAlerts ?>" role="alert">
-            Đơn Hàng: <?= $DonHang['ten_trang_thai'] ?>
+            Booking: <?= $DonHang['ten_trang_thai'] ?>
           </div>
 
 
@@ -90,7 +90,7 @@
               <div class="col-sm-4 invoice-col">
                 Thông Tin
                 <address>
-                  <strong>Mã Đơn Hàng:<?= $DonHang['ma_don_hang'] ?></strong><br>
+                  <strong>Mã Booking:<?= $DonHang['ma_don_hang'] ?></strong><br>
                   Tổng Tiền:<?= number_format($DonHang['tong_tien']) ?><br>
                   Ghi Chú: <?= $DonHang['ghi_chu'] ?><br>
                   Phương Thức Thanh Toán: <?= $DonHang['ten_phuong_thuc'] ?><br>
