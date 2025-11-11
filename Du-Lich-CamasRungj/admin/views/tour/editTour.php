@@ -13,7 +13,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-11">
-          <h1> Sửa thông tin sản phẩm <?= $SanPham['ten_san_pham'] ?></h1>
+          <h1> Sửa thông tin Tour <?= $SanPham['ten_san_pham'] ?></h1>
         </div>
         <div class="col-sm-1 ">
           <a href="#" class="btn btn-secondary"> Quay Lại </a>
@@ -26,7 +26,7 @@
       <div class="col-md-8">
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title ">Thông tin sản phẩm</h3>
+            <h3 class="card-title ">Thông tin Tour</h3>
 
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -34,12 +34,12 @@
               </button>
             </div>
           </div>
-          <form action="<?= BASE_URL_ADMIN . "?act=sua-san-pham" ?>" method="post" enctype="multipart/form-data">
+          <form action="<?= BASE_URL_ADMIN . "?act=sua-tour" ?>" method="post" enctype="multipart/form-data">
             <input type="hidden" name="id" value="<?= $SanPham['id_san_pham'] ?>">
-            <!-- Tên sản phẩm -->
+            <!-- Tên Tour -->
             <div class="card-body">
               <div class="form-group">
-                <label for="inputName">Tên sản phẩm</label>
+                <label for="inputName">Tên Tour</label>
                 <input type="text" name="ten_san_pham" id="inputName" class="form-control" value="<?= $SanPham['ten_san_pham'] ?>">
                 <?php
                 if (isset($_SESSION['error']['ten_san_pham'])) { ?>
@@ -47,10 +47,10 @@
                 <?php } ?>
               </div>
             </div>
-            <!-- Giá sản phẩm -->
+            <!-- Giá Tour -->
             <div class="card-body">
               <div class="form-group">
-                <label for="inputName">Giá sản phẩm</label>
+                <label for="inputName">Giá Tour</label>
                 <input type="text" name="gia_san_pham" id="inputName" class="form-control" value="<?= number_format($SanPham['gia_san_pham']) ?>">
                 <?php
                 if (isset($_SESSION['error']['gia_san_pham'])) { ?>
@@ -85,10 +85,10 @@
                 <?php } ?>
               </div>
             </div>
-            <!-- Ảnh Sản phẩm -->
+            <!-- Ảnh Tour -->
             <div class="card-body">
               <div class="form-group">
-                <label for="inputName">Ảnh sản phẩm</label>
+                <label for="inputName">Ảnh Tour</label>
                 <input type="hidden" value="<?= $SanPham['hinh_anh'] ?>" name="">
                 <input type="file" id="inputName" name="hinh_anh" class="form-control">
               </div>
@@ -163,7 +163,7 @@
         <!-- /.card -->
         <div class="card card-info">
           <div class="card-header">
-            <h3 class="card-title">Album ảnh sản phẩm</h3>
+            <h3 class="card-title">Album ảnh Tour</h3>
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                 <i class="fas fa-minus"></i>
@@ -172,7 +172,7 @@
           </div>
 
           <div class="card-body p-0">
-            <form action="<?= BASE_URL_ADMIN . "?act=sua-album-anh-san-pham" ?>" method="post" enctype="multipart/form-data">
+            <form action="<?= BASE_URL_ADMIN . "?act=sua-album-anh-Tour" ?>" method="post" enctype="multipart/form-data">
               <div class="table-responsive">
                 <table id="faqs" class="table table-hover">
                   <thead>

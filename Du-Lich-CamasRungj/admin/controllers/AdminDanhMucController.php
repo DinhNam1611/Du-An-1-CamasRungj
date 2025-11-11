@@ -8,19 +8,19 @@ class AdminDanhMucController
     }
     public function AdminHome()
     {
-        header("Location:" . BASE_URL_ADMIN . '?act=danh-muc');
+        header("Location:" . BASE_URL_ADMIN . '?act=danh-muc-tour');
     }
 
     public function danhSachDanhMuc()
     {
         $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
-        require_once './views/danhmuc/listDanhMuc.php';
+        require_once './views/danhmucTour/listDanhMucTour.php';
     }
 
     public function formAddDanhMuc()
     {
         // hàm này dùng để nhập form sản phẩm
-        require_once './views/danhmuc/addDanhMuc.php';
+        require_once './views/danhmuctour/addDanhMucTour.php';
     }
 
     public function postAddDanhMuc()

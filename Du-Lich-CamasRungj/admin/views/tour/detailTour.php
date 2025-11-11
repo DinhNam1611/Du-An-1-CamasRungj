@@ -28,9 +28,9 @@
             </div>
           </div>
           <div class="col-12 col-sm-6">
-            <h3 class="my-3">Tên Sản Phẩm: <?= $SanPham['ten_san_pham'] ?></h3>
+            <h3 class="my-3">Tên Tour: <?= $SanPham['ten_san_pham'] ?></h3>
             <hr>
-            <h4 class="my-3">Giá Sản Phẩm: <small><?= number_format($SanPham['gia_san_pham']) ?></small></h4>
+            <h4 class="my-3">Giá Tour: <small><?= number_format($SanPham['gia_san_pham']) ?></small></h4>
             <h4 class="my-3">Giá Khuyến Mãi: <small><?php if ($SanPham['gia_khuyen_mai'] !== null) {
                                                       echo number_format($SanPham['gia_khuyen_mai']);
                                                     } else {
@@ -46,14 +46,14 @@
         <div class="row mt-4">
           <nav class="w-100">
             <div class="nav nav-tabs" id="product-tab" role="tablist">
-              <a class="nav-item nav-link active" id="product-desc-tab" data-toggle="tab" href="#binh_luan" role="tab" aria-controls="product-desc" aria-selected="true">Bình Luận Sản Phẩm</a>
+              <a class="nav-item nav-link active" id="product-desc-tab" data-toggle="tab" href="#binh_luan" role="tab" aria-controls="product-desc" aria-selected="true">Bình Luận Tour</a>
             </div>
             <div class="col-12">
               <table id="example2" class="table table-bordered table-striped">
                 <thead>
                   <tr>
                     <th>STT</th>
-                    <th>Sản Phẩm</th>
+                    <th>Tour</th>
                     <th>Nội Dung</th>
                     <th>Ngày Bình Luậnh/th>
                     <th>Trạng Thái</th>

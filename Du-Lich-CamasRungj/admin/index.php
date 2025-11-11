@@ -4,13 +4,13 @@ require_once '../commons/env.php'; // Khai báo biến môi trường
 require_once '../commons/function.php'; // Hàm hỗ trợ
 // Require toàn bộ file Controllers
 require_once './controllers/AdminDanhMucController.php';
-require_once './controllers/AdminSanPhamController.php';
+require_once './controllers/AdminTourController.php';
 require_once './controllers/AdminDonHangController.php';
 require_once './controllers/AdminBaoCaoThongKeController.php';
 require_once './controllers/AdminTaiKhoanController.php';
 // Require toàn bộ file Models
 require_once './models/AdminDanhMuc.php';
-require_once './models/AdminSanPham.php';
+require_once './models/AdminTour.php';
 require_once './models/AdminDonHang.php';
 require_once './models/AdminTaiKhoan.php';
 
@@ -31,7 +31,7 @@ match ($act) {
     '/' => (new AdminBaoCaoThongKeController())->home(),
 
     // router danh mục
-    'danh-muc' => (new AdminDanhMucController())->danhSachDanhMuc(),
+    'danh-muc-tour' => (new AdminDanhMucController())->danhSachDanhMuc(),
     'form-them-danh-muc' => (new AdminDanhMucController())->formAddDanhMuc(),
     'them-danh-muc' => (new AdminDanhMucController())->postAddDanhMuc(),
     'form-sua-danh-muc' => (new AdminDanhMucController())->formEditDanhMuc(),
@@ -39,18 +39,18 @@ match ($act) {
     'xoa-danh-muc' => (new AdminDanhMucController())->deleteDanhMuc(),
 
     // router sản phẩm
-    'san-pham' => (new AdminSanPhamController())->danhSachSanPham(),
-    'form-them-san-pham' => (new AdminSanPhamController())->formAddSanPham(),
-    'them-san-pham' => (new AdminSanPhamController())->postAddSanPham(),
-    'form-sua-san-pham' => (new AdminSanPhamController())->formEditSanPham(),
-    'sua-san-pham' => (new AdminSanPhamController())->postEditSanPham(),
-    'xoa-san-pham' => (new AdminSanPhamController())->deleteSanPham(),
-    'sua-album-anh-san-pham' => (new AdminSanPhamController())->postEditAnhSanPham(),
-    'chi-tiet-san-pham' => (new AdminSanPhamController())->detailSanPham(),
+    'tour' => (new AdminTourController())->danhSachTour(),
+    // 'form-them-tour' => (new AdminTourController())->formAddTour(),
+    // 'them-tour' => (new AdminTourController())->postAddTour(),
+    // 'form-sua-tour' => (new AdminTourController())->formEditTour(),
+    // 'sua-tour' => (new AdminTourController())->postEditTour(),
+    // 'xoa-tour' => (new AdminTourController())->deleteTour(),
+    // 'sua-album-anh-tour' => (new AdminTourController())->postEditAnhTour(),
+    // 'chi-tiet-tour' => (new AdminTourController())->detailTour(),
 
 
     //router quản lý bình Luận
-    'update-trang-thai-binh-luan' => (new AdminSanPhamController())->updateTrangThaiBinhLuan(),
+    'update-trang-thai-binh-luan' => (new AdminTourController())->updateTrangThaiBinhLuan(),
 
     // router quản lý đơn hàngg
     'booking' => (new AdminDonHangController())->danhSachBooking(),
